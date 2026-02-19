@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grand Lagoon Resort & Casino</title>
+    <meta name="description" content="Grand Lagoon Resort & Casino - Where relaxation meets entertainment. Luxury accommodations, world-class dining, and an exciting casino floor in a stunning waterfront setting.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #c5a55a;
+            --gold-light: #d4bc7c;
+            --dark: #1a1a2e;
+            --darker: #0f0f1a;
+            --navy: #16213e;
+            --text: #e0e0e0;
+            --text-muted: #a0a0b0;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--darker);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(15, 15, 26, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(197, 165, 90, 0.15);
+            padding: 0 2rem;
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--gold);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .logo span { color: var(--white); font-weight: 400; }
+
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 400;
+            transition: color 0.3s;
+            letter-spacing: 0.5px;
+        }
+        .nav-links a:hover { color: var(--gold); }
+
+        .nav-cta {
+            background: var(--gold);
+            color: var(--darker);
+            padding: 0.6rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            transition: all 0.3s;
+        }
+        .nav-cta:hover { background: var(--gold-light); }
+
+        /* Hero */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(180deg, rgba(15,15,26,0.4) 0%, rgba(15,15,26,0.8) 100%),
+                        linear-gradient(135deg, var(--navy) 0%, var(--dark) 50%, #1a1a2e 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(ellipse at 30% 50%, rgba(197,165,90,0.08) 0%, transparent 60%),
+                        radial-gradient(ellipse at 70% 30%, rgba(22,33,62,0.5) 0%, transparent 50%);
+        }
+
+        .hero-content { position: relative; z-index: 2; max-width: 800px; padding: 0 2rem; }
+
+        .hero-badge {
+            display: inline-block;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 0.4rem 1.2rem;
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            color: var(--white);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            font-weight: 300;
+        }
+
+        .hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--darker);
+            padding: 0.9rem 2.5rem;
+            border: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .btn-primary:hover { background: var(--gold-light); }
+
+        .btn-outline {
+            border: 1px solid rgba(197,165,90,0.5);
+            color: var(--gold);
+            padding: 0.9rem 2.5rem;
+            background: transparent;
+            font-weight: 500;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .btn-outline:hover { border-color: var(--gold); background: rgba(197,165,90,0.1); }
+
+        /* Sections */
+        section { padding: 6rem 2rem; }
+
+        .section-inner { max-width: 1100px; margin: 0 auto; }
+
+        .section-label {
+            color: var(--gold);
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .section-desc {
+            color: var(--text-muted);
+            font-size: 1rem;
+            max-width: 650px;
+            font-weight: 300;
+            margin-bottom: 3rem;
+        }
+
+        /* Rooms Grid */
+        .rooms-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .room-card {
+            background: rgba(26, 26, 46, 0.6);
+            border: 1px solid rgba(197,165,90,0.12);
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+
+        .room-card:hover {
+            border-color: rgba(197,165,90,0.3);
+            transform: translateY(-4px);
+        }
+
+        .room-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(197,165,90,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .room-card h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--white);
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .room-card p { color: var(--text-muted); font-size: 0.9rem; font-weight: 300; }
+
+        .room-price {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(197,165,90,0.12);
+            color: var(--gold);
+            font-size: 0.85rem;
+        }
+
+        /* Casino Section */
+        .casino-section { background: var(--dark); }
+
+        .casino-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .casino-features { list-style: none; }
+
+        .casino-features li {
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(197,165,90,0.08);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .casino-features li::before {
+            content: '◆';
+            color: var(--gold);
+            font-size: 0.6rem;
+        }
+
+        .casino-visual {
+            background: linear-gradient(135deg, rgba(197,165,90,0.1) 0%, rgba(22,33,62,0.3) 100%);
+            border: 1px solid rgba(197,165,90,0.15);
+            padding: 3rem;
+            text-align: center;
+            min-height: 350px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .casino-visual .big-icon { font-size: 4rem; margin-bottom: 1.5rem; }
+
+        .casino-visual h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--white);
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .age-badge {
+            display: inline-block;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            padding: 0.3rem 0.8rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-top: 1rem;
+        }
+
+        /* Dining */
+        .dining-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .dining-card {
+            background: rgba(26, 26, 46, 0.4);
+            border: 1px solid rgba(197,165,90,0.1);
+            padding: 2.5rem;
+        }
+
+        .dining-card h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--white);
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .dining-card p { color: var(--text-muted); font-size: 0.9rem; font-weight: 300; }
+
+        .dining-hours {
+            margin-top: 1rem;
+            color: var(--gold);
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* Responsible Gaming */
+        .responsible {
+            background: var(--dark);
+            border-top: 1px solid rgba(197,165,90,0.1);
+        }
+
+        .responsible-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .responsible-content h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--white);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .responsible-content p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .responsible-items {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .responsible-item {
+            background: rgba(26, 26, 46, 0.5);
+            border: 1px solid rgba(197,165,90,0.1);
+            padding: 1.5rem;
+            flex: 1;
+            min-width: 200px;
+            max-width: 250px;
+        }
+
+        .responsible-item h4 { color: var(--gold); font-size: 0.85rem; margin-bottom: 0.5rem; letter-spacing: 0.5px; }
+        .responsible-item p { font-size: 0.85rem; text-align: left; }
+
+        /* Footer */
+        footer {
+            padding: 3rem 2rem;
+            border-top: 1px solid rgba(197,165,90,0.1);
+            text-align: center;
+        }
+
+        .footer-inner { max-width: 1100px; margin: 0 auto; }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            color: var(--gold);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links { display: flex; gap: 2rem; justify-content: center; margin-bottom: 1.5rem; }
+        .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.85rem; }
+        .footer-links a:hover { color: var(--gold); }
+
+        .footer-legal {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            line-height: 1.8;
+        }
+
+        .footer-disclaimer {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            font-size: 0.75rem;
+            color: #666;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .rooms-grid, .casino-grid, .dining-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .responsible-items { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a href="#" class="logo">Grand Lagoon <span>Resort & Casino</span></a>
+        <ul class="nav-links">
+            <li><a href="#rooms">Rooms</a></li>
+            <li><a href="#casino">Casino</a></li>
+            <li><a href="#dining">Dining</a></li>
+            <li><a href="#amenities">Amenities</a></li>
+        </ul>
+        <a href="#rooms" class="nav-cta">Book Your Stay</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-badge">Adults-Only Luxury Retreat</div>
+        <h1>Where Waterfront Elegance Meets Casino Excitement</h1>
+        <p>Escape to a world of refined leisure. Grand Lagoon Resort offers stunning waterfront suites, an energetic casino floor, and dining experiences that linger long after the last course.</p>
+        <div class="hero-buttons">
+            <a href="#rooms" class="btn-primary">Explore Rooms</a>
+            <a href="#casino" class="btn-outline">Casino & Entertainment</a>
+        </div>
+    </div>
+</section>
+
+<section id="rooms">
+    <div class="section-inner">
+        <div class="section-label">Accommodations</div>
+        <h2 class="section-title">Rooms & Suites</h2>
+        <p class="section-desc">Each room is designed as a calm retreat from the lively entertainment below. Floor-to-ceiling windows, soft textures, and waterfront views create spaces made for genuine rest.</p>
+
+        <div class="rooms-grid">
+            <div class="room-card">
+                <div class="room-icon">🛏️</div>
+                <h3>Classic Room</h3>
+                <p>Comfortable and contemporary with quality bedding, a modern bathroom, and thoughtful amenities. Ideal for a short stay focused on casino and dining.</p>
+                <div class="room-price">From $189 / night</div>
+            </div>
+            <div class="room-card">
+                <div class="room-icon">🌊</div>
+                <h3>Lagoon View Suite</h3>
+                <p>Enhanced layouts with panoramic water views. Wake up to natural light reflecting off the lagoon, with a separate sitting area and premium fixtures.</p>
+                <div class="room-price">From $329 / night</div>
+            </div>
+            <div class="room-card">
+                <div class="room-icon">✨</div>
+                <h3>Executive Penthouse</h3>
+                <p>Spacious living with a private terrace, dedicated lounge, and discreet concierge service. The ultimate expression of resort luxury.</p>
+                <div class="room-price">From $599 / night</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="casino" class="casino-section">
+    <div class="section-inner">
+        <div class="section-label">Entertainment</div>
+        <h2 class="section-title">Casino Floor</h2>
+        <p class="section-desc">An energetic yet refined gaming environment designed for guests who appreciate both excitement and comfort. Our casino combines classic table games with modern entertainment.</p>
+
+        <div class="casino-grid">
+            <div>
+                <ul class="casino-features">
+                    <li>Classic table games — blackjack, roulette, baccarat, and poker</li>
+                    <li>Curated selection of slot machines for casual and experienced players</li>
+                    <li>Clearly defined low-stakes and mid-stakes areas</li>
+                    <li>Comfortable lounge seating with bar service between games</li>
+                    <li>Private gaming rooms available by arrangement</li>
+                    <li>Live entertainment on select evenings</li>
+                    <li>Trained staff ensuring a welcoming, well-managed atmosphere</li>
+                </ul>
+            </div>
+            <div class="casino-visual">
+                <div class="big-icon">🎰</div>
+                <h3>Play Responsibly</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">Gaming is intended to complement your stay, not define it.</p>
+                <div class="age-badge">18+ ONLY</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="dining">
+    <div class="section-inner">
+        <div class="section-label">Culinary</div>
+        <h2 class="section-title">Dining & Lounge</h2>
+        <p class="section-desc">From fresh seafood to handcrafted cocktails at sunset, our dining venues are designed to punctuate your stay with memorable flavors and atmosphere.</p>
+
+        <div class="dining-grid">
+            <div class="dining-card">
+                <h3>The Waterfront Restaurant</h3>
+                <p>Seasonal menus featuring locally sourced seafood, prime cuts, and Mediterranean-inspired plates. Floor-to-ceiling lagoon views complement every dish.</p>
+                <div class="dining-hours">Breakfast 7–10am · Dinner 6–11pm</div>
+            </div>
+            <div class="dining-card">
+                <h3>Skyline Rooftop Bar</h3>
+                <p>Handcrafted cocktails, fine wines, and light bites served under open sky. The perfect setting for a pre-casino drink or a late-night unwind.</p>
+                <div class="dining-hours">Open daily 5pm–1am</div>
+            </div>
+            <div class="dining-card">
+                <h3>The Lagoon Café</h3>
+                <p>Casual all-day dining with international favorites, fresh juices, and artisan coffee. Poolside seating available during warmer months.</p>
+                <div class="dining-hours">Open daily 7am–6pm</div>
+            </div>
+            <div class="dining-card">
+                <h3>Private Dining</h3>
+                <p>Bespoke menus crafted for special occasions. Intimate rooms accommodating 4–20 guests with dedicated service and personalized wine pairings.</p>
+                <div class="dining-hours">By reservation only</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="amenities" class="casino-section">
+    <div class="section-inner">
+        <div class="section-label">Wellness & Leisure</div>
+        <h2 class="section-title">Resort Amenities</h2>
+        <p class="section-desc">Beyond gaming and dining, Grand Lagoon offers spaces designed for rest, movement, and renewal.</p>
+
+        <div class="rooms-grid">
+            <div class="room-card">
+                <div class="room-icon">💆</div>
+                <h3>The Spa</h3>
+                <p>Full-service spa with signature treatments, thermal pools, and relaxation lounges. Rejuvenate between evenings of entertainment.</p>
+            </div>
+            <div class="room-card">
+                <div class="room-icon">🏊</div>
+                <h3>Infinity Pool</h3>
+                <p>Adults-only lagoon-edge pool with premium sun loungers, cabana service, and a swim-up bar serving tropical refreshments.</p>
+            </div>
+            <div class="room-card">
+                <div class="room-icon">🏋️</div>
+                <h3>Fitness Center</h3>
+                <p>State-of-the-art equipment and ocean views. Personal trainers and morning yoga sessions available on request.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="responsible">
+    <div class="responsible-content">
+        <h2>Commitment to Responsible Entertainment</h2>
+        <p>Your enjoyment matters — and so does your well-being. Grand Lagoon Resort promotes responsible entertainment and provides support to ensure every guest has a positive experience.</p>
+
+        <div class="responsible-items">
+            <div class="responsible-item">
+                <h4>Personal Limits</h4>
+                <p>We encourage guests to set personal time and spending limits before entering the casino floor.</p>
+            </div>
+            <div class="responsible-item">
+                <h4>Support Available</h4>
+                <p>Confidential assistance and information on professional help resources available at any time.</p>
+            </div>
+            <div class="responsible-item">
+                <h4>Self-Exclusion</h4>
+                <p>Optional self-exclusion and limit-setting arrangements can be made discreetly with our guest services team.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-logo">Grand Lagoon Resort & Casino</div>
+        <div class="footer-links">
+            <a href="/terms">Terms of Service</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/responsible-gaming">Responsible Gaming</a>
+            <a href="#rooms">Reservations</a>
+        </div>
+        <div class="footer-legal">
+            &copy; 2025 Grand Lagoon Resort & Casino. All rights reserved.<br>
+            Operated by Lagoon Hospitality Group Ltd.
+        </div>
+        <div class="footer-disclaimer">
+            Grand Lagoon Resort & Casino is an adults-only destination. All guests must meet the minimum legal age requirement (18+) to access casino and gaming facilities. Valid government-issued photo identification may be required at any time. Gaming is provided for entertainment purposes in a controlled and regulated environment.
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
